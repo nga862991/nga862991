@@ -1,0 +1,476 @@
+/* 헤더 */
+/* PC  - 1497px*/
+body {
+    margin: 0;
+    font-family: 'Pretendard';
+    background-color: #ffffff;
+}
+
+/* 헤더 */
+.header {
+    width: 100%;
+    height: 90px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 45px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+/* 로고 */
+.header__logo img {
+    width: 158px;
+    height: auto;
+    display: block;
+}
+
+/* GNB */
+.header__nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header__nav ul {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transform: translateY(2px);
+}
+
+.header__nav li {
+    position: relative;
+}
+
+.header__nav li:not(:last-child)::after {
+    content: "•";
+    position: absolute;
+    right: -28px;
+    top: 49%; 
+    transform: translateY(-50%);
+    color: #AFAFAE;
+    font-size: 11px;
+    line-height: 1;
+}
+
+.header__nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+}
+
+.header__nav a:hover {
+    color: #5391cf;
+}
+
+/* PC용 드롭다운 (has-main) */
+.has-main {
+    position: relative;
+}
+
+[class^="brand-dropdown__"] {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(7px);
+    border-radius: 22px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+    padding: 22px 0;
+    width: 140px;
+    text-align: center;
+    display: none;
+    z-index: 999;
+    animation: fadeIn 0.25s ease forwards;
+}
+
+/* 위쪽 화살표 */
+[class^="brand-dropdown__"]::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
+[class^="brand-dropdown__"] ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+[class^="brand-dropdown__"] li {
+    margin: 10px 0;
+}
+
+[class^="brand-dropdown__"] li::after {
+    content: none !important;
+}
+
+
+[class^="brand-dropdown__"] a {
+    font-size: 15px;
+    color: #6f6d6d;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+[class^="brand-dropdown__"] a:hover {
+    color: #5391cf;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translate(-50%, -8px);}
+    to {opacity: 1; transform: translate(-50%, 0);}
+}
+
+/* 유틸 메뉴 */
+.header__util {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    margin-left: auto;
+}
+
+.header__util a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+    transition: color 0.3s ease;
+    letter-spacing: -0.02em;
+    -webkit-font-smoothing: antialiased;
+    
+}
+
+.header__util img {
+    width: 27px;
+    cursor: pointer;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.header__util img:hover {
+    opacity: 0.8;
+    color: #5391cf; 
+}
+
+.header__util a:hover {
+    color: #5391cf;
+}
+
+/* TABLET - max 1279px */
+@media (max-width: 1279px) {
+    .header {
+        height: 80px;
+        padding: 0 25px;
+    }
+    .header__logo img {
+        width: 140px;
+    }
+
+    /* GNB 숨김 */
+    .header__nav {
+        display: none;
+    }
+
+    .header__nav.active {
+        display: block;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        border-top: 1px solid #e0e0e0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .header__nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 0;
+    }
+
+    .header__nav a:hover {
+        background-color: #f5f5f5;
+    }
+
+    /* 유틸 메뉴 숨김 */
+    .header__util a {
+        display: none;
+    }
+
+    .header__util img {
+        width: 28px;
+    }
+}
+
+/* MOBLIE - max 768px */
+@media (max-width: 768px) {
+    .header {
+        height: 70px;
+        padding: 0 18px;
+    }
+
+    .header__logo img {
+        width: 125px;
+    }
+
+    .header__nav.active {
+        top: 70px;
+    }
+}
+
+/* 오버레이 메뉴 */
+/* PC - 오버레이 */
+/* 전체 배경 어둡게 흐리게 */
+.overlay-bg {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+    z-index: 150;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-bg.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* 오버레이 메뉴 */
+.overlay-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 350px;
+    max-width: 85%;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -3px 0 12px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s ease;
+    z-index: 200;
+    padding: 120px 60px 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay-menu.active {
+    right: 0;
+}
+
+/* 닫기 버튼 */
+.close-btn {
+    position: absolute;
+    top: 25px;
+    right: 32px;
+    background: none;
+    border: none;
+    font-size: 35px;
+    color: #333;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+}
+
+/* 1차 메뉴 */
+.overlay-menu__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.overlay-menu__list > li {
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+}
+
+.overlay-menu__list > li:last-child {
+    margin-bottom: 0;
+}
+
+/* 메뉴 텍스트 */
+.overlay-menu__list > li > a {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.overlay-menu__list > li > a:hover { 
+    color: #5391cf;
+}
+
+/* + / - 아이콘 */
+.arrow {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    margin-left: 10px;
+    transition: transform 0.4s ease, color 0.3s ease;
+    font-size: 15px;
+}
+
+.arrow::before,
+.arrow::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: #AFAFAE;
+    transform: translate(-50%, -50%);
+    border-radius: 1px;
+    transition: all 0.4s ease;
+}
+
+.arrow::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* 활성화 시 (플러스 → 마이너스) */
+.has-sub.active .arrow {
+    transform: rotate(180deg);
+}
+
+.has-sub.active .arrow::before,
+.has-sub.active .arrow::after {
+    background: #5391cf;
+}
+
+.has-sub.active .arrow::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* 서브메뉴 */
+.sub-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    list-style: none;
+    margin: 0;
+    padding-left: 10px;
+    opacity: 0;
+    /* border-left: 2px solid #0094b8; 파란 줄 형태? */
+}
+
+/* 활성화 시 부드럽게 나타남 */
+.has-sub.active .sub-menu {
+    max-height: 400px;
+    opacity: 1;
+}
+
+/* 2차 메뉴 항목 */
+.sub-menu li {
+    position: relative;
+    margin: 20px 0;
+}
+
+.sub-menu a {
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* 호버 효과: 약간 오른쪽으로 슬라이드되면서 색 전환 */
+.sub-menu a:hover {
+    color: #5391cf;
+    transform: translateX(3px);
+}
+
+/* TABLET - max 1024px - 오버레이 */
+@media (max-width: 1024px) {
+    .overlay-menu {
+        width: 320px;
+        padding: 100px 60px 60px;
+    }
+
+    .overlay-menu__list > li > a {
+        font-size: 18px;
+    }
+
+    .sub-menu a {
+        font-size: 17px;
+    }
+
+    .arrow {
+        width: 17px;
+        height: 17px;
+    }
+
+    .close-btn {
+        font-size: 28px;
+    }
+}
+
+/* MOBILE - max 768px - 오버레이 */
+@media (max-width: 768px) {
+    .overlay-menu {
+        width: 250px;
+        padding: 80px 40px 40px;
+    }
+
+    .overlay-menu__list > li > a {
+        font-size: 16px;
+    }
+
+    .sub-menu a {
+        font-size: 14px;
+    }
+
+    /* 플러스 아이콘 크기 확대 */
+    .arrow {
+        width: 15px;
+        height: 15px;
+        margin-left: 10px;
+    }
+
+    /* 터치 시 눌림 효과 */
+    .overlay-menu__list > li > a:active {
+        color: #5391cf;
+        transform: scale(0.98);
+    }
+
+    .close-btn {
+        font-size: 25px;
+    }
+}
