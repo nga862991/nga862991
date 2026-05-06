@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+/* --------------------------
+   Pretendard
+-------------------------- */
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('../font/pretendard/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('../font/pretendard/Pretendard-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('../font/pretendard/Pretendard-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* --------------------------
+   Abhaya Libre
+-------------------------- */
+
+@font-face {
+  font-family: 'Abhaya Libre';
+  src: url('../font/abhayalibre/AbhayaLibre-Regular.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Abhaya Libre';
+  src: url('../font/abhayalibre/AbhayaLibre-Medium.woff') format('woff');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Abhaya Libre';
+  src: url('../font/abhayalibre/AbhayaLibre-SemiBold.woff') format('woff');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Abhaya Libre';
+  src: url('../font/abhayalibre/AbhayaLibre-Bold.woff') format('woff');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Abhaya Libre';
+  src: url('../font/abhayalibre/AbhayaLibre-ExtraBold.woff') format('woff');
+  font-weight: 800;
+}
+
+/* --------------------------
+   Quinsi
+-------------------------- */
+@font-face {
+  font-family: 'Quinsi';
+  src: url('../font/Quinsi/Quinsi.woff') format('woff');
+  font-weight: 400;
+}
+
+/* --------------------------
+   Glastone
+-------------------------- */
+@font-face {
+  font-family: 'Glastone';
+  src: url('../font/Glastone/Glastone-Regular.woff') format('woff');
+  font-weight: 400;
+}
